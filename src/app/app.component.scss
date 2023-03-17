@@ -1,0 +1,24 @@
+@import "../assets/sass/abstracts/variables";
+
+.container{
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-2);
+    box-shadow: var(--shadow-dark);
+
+    @media only screen and (max-width: $bp-largest){
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .content{
+        display: flex;
+        
+        @media only screen and (max-width: $bp-medium) {
+            flex-direction: column;
+        }
+    }
+    
+
+}

@@ -1,0 +1,68 @@
+<main class="hotel-view">
+    <section class="gallery">
+        <figure class="gallery__item" *ngFor="let item of hotelView.hotelsImgs">
+            <img [src]="item" alt="hotel photo" class="gallery__photo">
+        </figure>
+    </section>
+
+    <section class="overview">
+        <h1 class="overview__heading">{{hotelView.name}}</h1>
+        <div class="overview__stars">
+            <svg class="overview__icon-star" *ngFor="let star of stars">
+                <use xlink:href="assets/img/sprite.svg#icon-star"></use>
+            </svg>
+        </div>
+        <div class="overview__location">
+            <svg class="overview__icon-location">
+                <use xlink:href="assets/img/sprite.svg#icon-location-pin"></use>
+            </svg>
+            <button class="btn-inline">{{hotelView.city}}, {{hotelView.country}}</button>
+            <div class="overview__rating">
+                <div class="overview__rating-average">{{hotelView.averageRate}}</div>
+                <div class="overview__rating-count">{{hotelView.votesNum}} votes</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="detail">
+        <div class="description">
+            <p class="paragraph" *ngFor="let item of hotelView.description">
+             {{item}}
+            </p>
+            <ul class="list">
+                <li class="list__item" *ngFor="let item of hotelView.listItems">
+                {{item}}
+                </li>
+            </ul>
+            <div class="recommend">
+                <p class="recommend__count">
+                    Lucy and 3 other friends recommend this hotel.
+                </p>
+                <div class="recommend__friends">
+                    <img *ngFor="let item of hotelView.reviewersImgs" [src]="item" alt="Friend image" class="recommend__photo">
+                </div>
+            </div>
+        </div>
+
+        <div class="user-reviews">
+            <figure class="review" *ngFor="let review of hotelView.reviews">
+                <blockquote class="review__text">
+                    {{review.text}}
+                </blockquote>
+                <figcaption class="review__user">
+                    <img [src]="review.img" alt="User review" class="review__photo">
+                    <div class="review__user-box">
+                        <p class="review__user-name">{{review.name}}</p>
+                        <p class="review__user-date">{{review.date}}</p>
+                    </div>
+                    <div class="review__rating">{{review.rating}}</div>
+                </figcaption>
+            </figure>
+            <button class="btn-inline">Show all <span>&rarr;</span></button>
+        </div>
+
+    </div>
+
+    <app-footer></app-footer>
+    
+</main>
